@@ -11,6 +11,7 @@ export const Navigation = () => {
     >
       <NavItem>home </NavItem>
       <NavItem>about </NavItem>
+      <NavItem>projects </NavItem>
       <NavItem>lab </NavItem>
       <NavItem>articles</NavItem>
     </Flex>

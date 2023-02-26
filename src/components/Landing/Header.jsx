@@ -10,15 +10,15 @@ export const Header = () => {
       justifyContent="space-between"
       alignItems="center"
     >
-      <Intro>ka wai cheung</Intro>
+      <Name>ka wai cheung</Name>
       <Navigation />
     </Flex>
   );
 };
 
-export const Intro = styled.h1`
-  font-size: 2.4rem;
-  font-weight: 100;
+export const Name = styled.h1`
+  font-size: 2rem;
+  font-weight: 200;
   letter-spacing: 0.3ch;
   text-transform: uppercase;
   font-family: ${fonts.secondary};

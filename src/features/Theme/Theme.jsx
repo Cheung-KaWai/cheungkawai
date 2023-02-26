@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const colors = {
-  primary: "#131313",
+  primary: "#0f0f0f",
   primaryFont: "#ffffff59",
 };
 
@@ -26,4 +26,5 @@ export const GlobalStyles = createGlobalStyle`
     font-family:${(props) => props.font};
     font-size: 1.6rem;
   }
+
 `;

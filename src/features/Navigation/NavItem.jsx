@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors, fonts } from "../Theme/Theme";
 
 export const NavItem = ({ children }) => {
-  return <NavItemStyled>{children}</NavItemStyled>;
+  return <NavItemStyled onClick={() => console.log("hello")}>{children}</NavItemStyled>;
 };
 
 export const NavItemStyled = styled.a`
