@@ -1,9 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { useCursorStore } from "../../store/cursorStore";
 import { colors, fonts } from "../Theme/Theme";
 
 export const NavItem = ({ children }) => {
-  return <NavItemStyled onClick={() => console.log("hello")}>{children}</NavItemStyled>;
+  const updateCursor = useCursorStore((store) => store.update);
+
+  return (
+    <NavItemStyled
+      onMouseEnter={() => updateCursor("expand", true)}
+      onMouseLeave={() => updateCursor("expand", false)}
+    >
+      {children}
+    </NavItemStyled>
+  );
 };
 
 export const NavItemStyled = styled.a`

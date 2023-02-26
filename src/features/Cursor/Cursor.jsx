@@ -1,24 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 import { useCursor } from "../../hooks/useCursor";
+import { useCursorStore } from "../../store/cursorStore";
 import { colors } from "../Theme/Theme";
 
 export const Cursor = (props) => {
   const [{ x, y }, visible] = useCursor();
+  const expand = useCursorStore((store) => store.expand);
 
   const passProps = {
     ...props,
     x,
     y,
     opacity: visible ? 1 : 0,
+    expand: expand ? 2 : 1,
   };
 
   return <CursorStyled {...passProps} />;
 };
 
-const CursorStyled = styled.span.attrs((props) => ({
+const CursorStyled = styled.div.attrs((props) => ({
   style: {
-    transform: `translate(${props.x - 10}px, ${props.y - 10}px)`,
+    top: `${props.y - 15}px`,
+    left: `${props.x - 15}px`,
+    transform: `scale(${props.expand})`,
     opacity: props.opacity,
   },
 }))`
@@ -27,8 +32,6 @@ const CursorStyled = styled.span.attrs((props) => ({
   border-radius: 50%;
   border: 1px solid ${colors.primaryFont};
   position: fixed;
-  top: -1.5px;
-  left: -1.5px;
   pointer-events: none;
-  transition: opacity 0.5s ease-in;
+  transition: transform 0.3s ease-in, opacity 0.5s ease-in;
 `;
