@@ -9,6 +9,8 @@ export const Header = () => {
     <Flex
       justifyContent="space-between"
       alignItems="center"
+      zIndex={1}
+      position="sticky"
     >
       <Name>ka wai cheung</Name>
       <Navigation />
@@ -16,7 +18,7 @@ export const Header = () => {
   );
 };
 
-export const Name = styled.h1`
+export const Name = styled.p`
   font-size: 2rem;
   font-weight: 200;
   letter-spacing: 0.3ch;

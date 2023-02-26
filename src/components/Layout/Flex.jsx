@@ -14,4 +14,6 @@ export const FlexStyled = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   gap: ${(props) => props.gap};
+  z-index: ${(props) => props.zIndex};
+  position: ${(props) => props.position ?? "relative"};
 `;
