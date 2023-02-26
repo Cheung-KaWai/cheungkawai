@@ -13,5 +13,4 @@ export const NavItemStyled = styled.a`
   font-family: ${fonts.primary};
   text-transform: uppercase;
   letter-spacing: 0.3ch;
-  cursor: pointer;
 `;
