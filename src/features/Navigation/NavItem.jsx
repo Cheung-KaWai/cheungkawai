@@ -23,4 +23,9 @@ export const NavItemStyled = styled.a`
   font-family: ${fonts.primary};
   text-transform: uppercase;
   letter-spacing: 0.3ch;
+  transition: color 0.3s ease-in;
+
+  &:hover {
+    color: #fff;
+  }
 `;
