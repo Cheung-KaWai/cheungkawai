@@ -1,24 +1,40 @@
 import gsap from "gsap";
-import React, { useLayoutEffect, useRef } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import { colors, fonts } from "../../features/Theme/Theme";
 import { Flex } from "../Layout/Flex";
 
 export const Hero = () => {
   const heroSection = useRef();
+  gsap.registerPlugin(ScrollTrigger);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
-      tl.from(".title", { x: -100, opacity: 0, duration: 1 });
-      tl.from(".subtitle", { y: 100, opacity: 0, duration: 1 });
+      tl.from(".title", { x: -200, opacity: 0, duration: 1 });
+      tl.from(".subtitle", { y: 50, opacity: 0, duration: 1 });
     }, heroSection);
-
     return () => ctx.revert();
   }, []);
 
+  // useEffect(() => {
+  //   ScrollTrigger.create({
+  //     trigger: ".title",
+  //     start: "top",
+  //     onEnter: () => console.log("enter"),
+  //     onEnterBack: () => console.log("enterBack"),
+  //     onLeave: () => console.log("leave"),
+  //     onLeaveBack: () => console.log("leaveBack"),
+  //     markers: { startColor: "green", endColor: "red", fontSize: "12px" },
+  //   });
+  // }, []);
+
   return (
-    <HeroSection ref={heroSection}>
+    <HeroSection
+      ref={heroSection}
+      className="heroSection"
+    >
       <Flex
         flexDirection="column"
         gap="1rem"

@@ -1,12 +1,29 @@
-import React from "react";
+import gsap from "gsap";
+import CSSRulePlugin from "gsap/CSSRulePlugin";
+import React, { useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import { Navigation } from "../../features/Navigation/Navigation";
-import { fonts } from "../../features/Theme/Theme";
+import { colors, fonts } from "../../features/Theme/Theme";
 import { Flex } from "../Layout/Flex";
 
 export const Header = () => {
+  gsap.registerPlugin(CSSRulePlugin);
+  const navBar = useRef();
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".line", {
+        width: 0,
+        duration: 2,
+      });
+    }, navBar);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <NavigationBar>
+    <NavigationBar ref={navBar}>
+      <Line className="line" />
       <Flex
         justifyContent="space-between"
         alignItems="center"
@@ -28,9 +45,18 @@ export const Name = styled.p`
   width: fit-content;
 `;
 
+const Line = styled.span`
+  width: calc(100vw - 80px);
+  height: 0.1px;
+  position: absolute;
+  top: 8rem;
+  background-color: ${colors.primaryFont};
+`;
+
 const NavigationBar = styled.nav`
   z-index: 1;
   position: absolute;
   width: 100vw;
   padding: 4rem;
+  background-color: ${colors.primary};
 `;

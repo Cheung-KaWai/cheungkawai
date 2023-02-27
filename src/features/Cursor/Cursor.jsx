@@ -33,5 +33,6 @@ const CursorStyled = styled.div.attrs((props) => ({
   border: 1px solid ${colors.primaryFont};
   position: fixed;
   pointer-events: none;
+  z-index: 2;
   transition: transform 0.3s ease-in, opacity 0.5s ease-in;
 `;
