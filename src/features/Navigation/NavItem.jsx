@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import { useCursorStore } from "../../store/cursorStore";
+import { useNavigationStore } from "../../store/navigationStore";
 import { colors, fonts } from "../Theme/Theme";
 
-export const NavItem = ({ children }) => {
+export const NavItem = ({ children, link }) => {
   const updateCursor = useCursorStore((store) => store.update);
+  const highlight = useNavigationStore((store) => store[link]);
 
   return (
     <NavItemStyled
       onMouseEnter={() => updateCursor("expand", true)}
       onMouseLeave={() => updateCursor("expand", false)}
+      highlight={highlight}
     >
       {children}
     </NavItemStyled>
@@ -18,7 +21,7 @@ export const NavItem = ({ children }) => {
 
 export const NavItemStyled = styled.a`
   text-decoration: none;
-  color: ${colors.primaryFont};
+  color: ${(props) => (props.highlight ? "#fff" : colors.primaryFont)};
   font-size: 1.4rem;
   font-family: ${fonts.primary};
   text-transform: uppercase;

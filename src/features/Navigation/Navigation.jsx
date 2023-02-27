@@ -9,11 +9,11 @@ export const Navigation = () => {
       width="fit-content"
       gap="2rem"
     >
-      <NavItem>home </NavItem>
-      <NavItem>about </NavItem>
-      <NavItem>projects </NavItem>
-      <NavItem>lab </NavItem>
-      <NavItem>articles</NavItem>
+      <NavItem link="home">home </NavItem>
+      <NavItem link="about">about </NavItem>
+      <NavItem link="projects">projects </NavItem>
+      <NavItem link="lab">lab </NavItem>
+      <NavItem link="articles"> articles</NavItem>
     </Flex>
   );
 };

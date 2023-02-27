@@ -55,7 +55,7 @@ const Line = styled.span`
 
 const NavigationBar = styled.nav`
   z-index: 1;
-  position: absolute;
+  position: fixed;
   width: 100vw;
   padding: 4rem;
   background-color: ${colors.primary};

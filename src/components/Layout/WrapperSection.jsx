@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { colors } from "../../features/Theme/Theme";
 
-export const WrapperSection = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
+export const WrapperSection = ({ children, ...props }) => {
+  return <Wrapper {...props}>{children}</Wrapper>;
 };
 
 const Wrapper = styled.section`
@@ -11,6 +11,6 @@ const Wrapper = styled.section`
   height: 100vh;
   background-color: ${colors.primary};
   padding: 10rem 4rem 4rem 4rem;
-  scroll-snap-align: start;
   position: relative;
+  scroll-snap-align: start;
 `;

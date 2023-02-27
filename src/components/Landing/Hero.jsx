@@ -18,18 +18,6 @@ export const Hero = () => {
     return () => ctx.revert();
   }, []);
 
-  // useEffect(() => {
-  //   ScrollTrigger.create({
-  //     trigger: ".title",
-  //     start: "top",
-  //     onEnter: () => console.log("enter"),
-  //     onEnterBack: () => console.log("enterBack"),
-  //     onLeave: () => console.log("leave"),
-  //     onLeaveBack: () => console.log("leaveBack"),
-  //     markers: { startColor: "green", endColor: "red", fontSize: "12px" },
-  //   });
-  // }, []);
-
   return (
     <HeroSection
       ref={heroSection}
