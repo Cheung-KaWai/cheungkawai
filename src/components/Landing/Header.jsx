@@ -6,15 +6,15 @@ import { Flex } from "../Layout/Flex";
 
 export const Header = () => {
   return (
-    <Flex
-      justifyContent="space-between"
-      alignItems="center"
-      zIndex={1}
-      position="sticky"
-    >
-      <Name>ka wai cheung</Name>
-      <Navigation />
-    </Flex>
+    <NavigationBar>
+      <Flex
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Name>ka wai cheung</Name>
+        <Navigation />
+      </Flex>
+    </NavigationBar>
   );
 };
 
@@ -26,4 +26,11 @@ export const Name = styled.p`
   font-family: ${fonts.secondary};
   position: relative;
   width: fit-content;
+`;
+
+const NavigationBar = styled.nav`
+  z-index: 1;
+  position: absolute;
+  width: 100vw;
+  padding: 4rem;
 `;
