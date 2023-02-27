@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const colors = {
   primary: "#0f0f0f",
   primaryFont: "#ffffff59",
+  suttle: "#ffffff10",
 };
 
 export const fonts = {
@@ -15,7 +16,8 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    cursor: none
+    cursor: none;
+    scroll-behavior: smooth;
   }
 
   html{
@@ -27,5 +29,9 @@ export const GlobalStyles = createGlobalStyle`
     font-family:${(props) => props.font};
     font-size: 1.6rem;
   }
+
+  ::-webkit-scrollbar { 
+    display: none; 
+}
 
 `;

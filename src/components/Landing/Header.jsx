@@ -7,19 +7,19 @@ import { colors, fonts } from "../../features/Theme/Theme";
 import { Flex } from "../Layout/Flex";
 
 export const Header = () => {
-  gsap.registerPlugin(CSSRulePlugin);
   const navBar = useRef();
+  // gsap.registerPlugin(CSSRulePlugin);
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".line", {
-        width: 0,
-        duration: 2,
-      });
-    }, navBar);
+  // useLayoutEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.from(".line", {
+  //       width: 0,
+  //       duration: 2,
+  //     });
+  //   }, navBar);
 
-    return () => ctx.revert();
-  }, []);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     <NavigationBar ref={navBar}>
@@ -50,7 +50,7 @@ const Line = styled.span`
   height: 0.1px;
   position: absolute;
   top: 8rem;
-  background-color: ${colors.primaryFont};
+  background-color: ${colors.suttle};
 `;
 
 const NavigationBar = styled.nav`

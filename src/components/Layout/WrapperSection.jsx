@@ -10,7 +10,7 @@ const Wrapper = styled.section`
   width: 100vw;
   height: 100vh;
   background-color: ${colors.primary};
-  padding: 10rem 4rem 4rem 4rem;
+  padding: 12rem 4rem 4rem 4rem;
   position: relative;
   scroll-snap-align: start;
 `;

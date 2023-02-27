@@ -5,7 +5,7 @@ import { WrapperSection } from "../Layout/WrapperSection";
 
 export const Landing = () => {
   return (
-    <WrapperSection>
+    <WrapperSection id="home">
       <Hero />
       <CallToAction />
     </WrapperSection>

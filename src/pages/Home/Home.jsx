@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import { About } from "../../components/About/About";
 import { Blog } from "../../components/Blog/Blog";
@@ -15,7 +15,6 @@ export const Home = () => {
   const container = useRef();
 
   const updateNavigation = useNavigationStore((store) => store.update);
-  console.log("rerender");
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {

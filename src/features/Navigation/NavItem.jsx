@@ -13,6 +13,7 @@ export const NavItem = ({ children, link }) => {
       onMouseEnter={() => updateCursor("expand", true)}
       onMouseLeave={() => updateCursor("expand", false)}
       highlight={highlight}
+      href={link}
     >
       {children}
     </NavItemStyled>

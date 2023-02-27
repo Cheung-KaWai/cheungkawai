@@ -16,4 +16,6 @@ export const FlexStyled = styled.div`
   gap: ${(props) => props.gap};
   z-index: ${(props) => props.zIndex};
   position: ${(props) => props.position ?? "relative"};
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
 `;
