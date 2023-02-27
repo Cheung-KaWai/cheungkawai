@@ -13,7 +13,7 @@ export const Navigation = () => {
       <NavItem link="about">about </NavItem>
       <NavItem link="projects">projects </NavItem>
       <NavItem link="lab">lab </NavItem>
-      <NavItem link="articles"> articles</NavItem>
+      <NavItem link="blog"> blog</NavItem>
     </Flex>
   );
 };
