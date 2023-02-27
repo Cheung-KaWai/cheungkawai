@@ -1,17 +1,30 @@
-import React from "react";
+import gsap from "gsap";
+import React, { useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import { colors, fonts } from "../../features/Theme/Theme";
 import { Flex } from "../Layout/Flex";
 
 export const Hero = () => {
+  const heroSection = useRef();
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
+      tl.from(".title", { x: -100, opacity: 0, duration: 1 });
+      tl.from(".subtitle", { y: 100, opacity: 0, duration: 1 });
+    }, heroSection);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <HeroSection>
+    <HeroSection ref={heroSection}>
       <Flex
         flexDirection="column"
         gap="1rem"
       >
-        <Title>kaizen | 改善</Title>
-        <SubTitle>
+        <Title className="title">kaizen | 改善</Title>
+        <SubTitle className="subtitle">
           Philosophy of continious improvement <br /> Becoming one percent better everyday
         </SubTitle>
       </Flex>
