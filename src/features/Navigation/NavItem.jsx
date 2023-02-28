@@ -4,9 +4,9 @@ import { useCursorStore } from "../../store/cursorStore";
 import { useNavigationStore } from "../../store/navigationStore";
 import { colors, fonts } from "../Theme/Theme";
 
-export const NavItem = ({ children, link }) => {
+export const NavItem = ({ children, link, name }) => {
   const updateCursor = useCursorStore((store) => store.update);
-  const highlight = useNavigationStore((store) => store[link]);
+  const highlight = useNavigationStore((store) => store[name]);
 
   return (
     <NavItemStyled
