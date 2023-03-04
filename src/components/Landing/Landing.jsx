@@ -5,9 +5,12 @@ import { WrapperSection } from "../Layout/WrapperSection";
 
 export const Landing = () => {
   return (
-    <WrapperSection id="home">
+    <WrapperSection
+      id="home"
+      className="heroSection"
+    >
       <Hero />
-      <CallToAction />
+      {/* <CallToAction /> */}
     </WrapperSection>
   );
 };
