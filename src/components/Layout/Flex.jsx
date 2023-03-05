@@ -18,4 +18,5 @@ export const FlexStyled = styled.div`
   position: ${(props) => props.position ?? "relative"};
   top: ${(props) => props.top};
   left: ${(props) => props.left};
+  overflow: ${(props) => props.overflow};
 `;

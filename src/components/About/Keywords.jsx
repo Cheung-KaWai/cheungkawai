@@ -1,104 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { colors } from "../../features/Theme/Theme";
-import { useCursorStore } from "../../store/cursorStore";
-import { Flex } from "../Layout/Flex";
+import { useAboutStore } from "../../store/aboutStore";
+import { KeywordItem } from "./KeywordItem";
 
 export const Keywords = () => {
-  const updateCursor = useCursorStore((store) => store.update);
+  const offset = useAboutStore((store) => store.offset);
+
+  const listWords = ["me", "coding", "cycling", "running", "japan", "anime", "badminton", "piano"];
+
   return (
-    <Flex
-      gap="1rem"
-      flexDirection="column"
-      width="100%"
-    >
-      <KeywordItem
-        onMouseEnter={() => updateCursor("expand", true)}
-        onMouseLeave={() => updateCursor("expand", false)}
-      >
-        me
-      </KeywordItem>
-      <KeywordItem
-        onMouseEnter={() => updateCursor("expand", true)}
-        onMouseLeave={() => updateCursor("expand", false)}
-      >
-        coding
-      </KeywordItem>
-      <KeywordItem
-        onMouseEnter={() => updateCursor("expand", true)}
-        onMouseLeave={() => updateCursor("expand", false)}
-      >
-        cycling
-      </KeywordItem>
-      <KeywordItem
-        onMouseEnter={() => updateCursor("expand", true)}
-        onMouseLeave={() => updateCursor("expand", false)}
-      >
-        running
-      </KeywordItem>
-      <KeywordItem
-        onMouseEnter={() => updateCursor("expand", true)}
-        onMouseLeave={() => updateCursor("expand", false)}
-      >
-        japan
-      </KeywordItem>
-      <KeywordItem
-        onMouseEnter={() => updateCursor("expand", true)}
-        onMouseLeave={() => updateCursor("expand", false)}
-      >
-        anime
-      </KeywordItem>
-      <KeywordItem
-        onMouseEnter={() => updateCursor("expand", true)}
-        onMouseLeave={() => updateCursor("expand", false)}
-      >
-        badminton
-      </KeywordItem>
-      <KeywordItem
-        onMouseEnter={() => updateCursor("expand", true)}
-        onMouseLeave={() => updateCursor("expand", false)}
-      >
-        piano
-      </KeywordItem>
-    </Flex>
+    <KeywordContent>
+      <ListContainer offset={offset * -50}>
+        {listWords.map((word, index) => (
+          <KeywordItem
+            keyword={word}
+            index={index}
+          />
+        ))}
+      </ListContainer>
+    </KeywordContent>
   );
 };
 
-const KeywordItem = styled.p`
-  position: relative;
-  padding: 1rem 0;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.3ch;
-  font-size: 1.4rem;
-  transition: color 0.3s;
-  &::after {
-    content: "";
-    width: 100%;
-    height: 0.1px;
-    background-color: ${colors.suttle};
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transition: background-color 0.3s;
-  }
-  :hover {
-    color: #fff;
-    &::after {
-      background-color: #fff;
-    }
-  }
+const ListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  width: 100%;
+  transform: translateY(${(props) => props.offset}px);
+  transition: transform 0.3s;
 `;
-// const Grid = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   display: grid;
-//   grid-template-columns: repeat(5, 1fr);
-//   grid-template-rows: repeat(5, 1fr);
-//   gap: 0.5rem;
-// `;
-// const KeywordItem = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   background-color: red;
-// `;
+
+const KeywordContent = styled.div`
+  width: 100%;
+  height: 44rem;
+  overflow: hidden;
+`;
