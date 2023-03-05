@@ -15,6 +15,7 @@ export const Keywords = () => {
           <KeywordItem
             keyword={word}
             index={index}
+            key={index}
           />
         ))}
       </ListContainer>

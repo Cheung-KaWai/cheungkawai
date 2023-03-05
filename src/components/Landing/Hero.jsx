@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import React, { useEffect, useLayoutEffect, useRef } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { colors, fonts } from "../../features/Theme/Theme";
 import { Flex } from "../Layout/Flex";
 
@@ -24,7 +24,9 @@ export const Hero = () => {
         flexDirection="column"
         gap="1rem"
       >
-        <Title className="title">kaizen | 改善</Title>
+        <Title className="title">
+          kaizen |<SpanStyled> 改善</SpanStyled>
+        </Title>
         <SubTitle className="subtitle">
           Philosophy of continious improvement <br /> Becoming one percent better everyday
         </SubTitle>
@@ -63,6 +65,24 @@ const Title = styled.p`
     transform: translate(-120%, 50%);
     color: ${colors.primaryFont};
   }
+`;
+
+const animate = keyframes`
+  from{
+    background-position: 0% center;
+  }
+  to{
+    background-position: -200% center;
+  }
+`;
+
+const SpanStyled = styled.span`
+  animation: ${animate} 3s linear infinite;
+  background: linear-gradient(45deg, #96f2d7, #20c997, #099268, #96f2d7);
+  background-clip: text;
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 const SubTitle = styled.p`
